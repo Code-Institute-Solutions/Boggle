@@ -83,4 +83,6 @@ def main():
     words = search(grid, dictionary)
     display_words(words)
 
-main()
+
+if __name__ == "__main__":
+    main()
