@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import unittest
 from string import ascii_uppercase
 import boggle

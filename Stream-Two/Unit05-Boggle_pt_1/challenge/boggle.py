@@ -1,5 +1,9 @@
-from string import ascii_uppercase
+#!/usr/bin/env python
+import os
 from random import choice
+from string import ascii_uppercase
+
+SCRIPT_PATH = os.path.join(os.getcwd(), os.path.dirname(__file__))
 
 
 def check():
@@ -52,6 +56,10 @@ def search(grid, dictionary):
 
 
 def get_dictionary(dictionary_file):
+    if not dictionary_file.startswith('/'):
+        # if not absolute, then make path relative to our location:
+        dictionary_file = os.path.join(SCRIPT_PATH, dictionary_file)
+
     with open(dictionary_file) as f:
         return [w.strip().upper() for w in f]
 
