@@ -64,4 +64,6 @@ def main():
         print word
     print "Found {0} words".format(len(words))
 
-main()
+
+if __name__ == "__main__":
+    main()
