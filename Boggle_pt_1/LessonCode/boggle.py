@@ -90,7 +90,7 @@ def get_dictionary(dictionary_file):
         # if not absolute, then make path relative to our location:
         dictionary_file = os.path.join(SCRIPT_PATH, dictionary_file)
         
-    with open("words.txt") as f:
+    with open(dictionary_file) as f:
         return [w.strip().upper() for w in f]
         
 def main():
