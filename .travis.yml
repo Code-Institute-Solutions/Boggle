@@ -3,9 +3,6 @@ python:
   - "3.4"
 # install: "pip install -r Boggle_pt_2/LessonCode/requirements.txt"
 script:
-- Boggle_pt_1/LessonCode/boggle.py
-- Boggle_pt_1/LessonCode/test_boggle.py
-- Boggle_pt_1/Challenge/boggle.py
-- Boggle_pt_1/Challenge/test_boggle.py
-- Boggle_pt_2/LessonCode/boggle.py
-- Boggle_pt_2/LessonCode/test_boggle.py
+- 01-getting-started/test_boggle.py
+- 01.c1-testing-larger-grids/test_boggle.py
+- 02-optimising/test_boggle.py
