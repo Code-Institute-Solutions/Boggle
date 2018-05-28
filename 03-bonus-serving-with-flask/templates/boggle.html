@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boggle Solver</title>
+    <style>
+        #grid table {
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        #grid td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Boggle Solver</h1>
+
+    <section id="grid">
+        <h2>Letter Grid:</h2>
+        <table>
+            {% for row in grid %}
+            <tr>
+                {% for letter in row %}
+                <td>{{ letter }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section id="words">
+        <h2>Words Found:</h2>
+        <ol>
+            {% for word in words %}
+            <li>{{ word }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+</body>
+</html>

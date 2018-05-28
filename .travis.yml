@@ -1,8 +1,9 @@
 language: python
 python:
   - "3.4"
-# install: "pip install -r Boggle_pt_2/LessonCode/requirements.txt"
+install: "pip install -r 03-bonus-serving-with-flask/requirements.txt"
 script:
 - 01-getting-started/test_boggle.py
 - 01.c1-testing-larger-grids/test_boggle.py
 - 02-optimising/test_boggle.py
+- 03-bonus-serving-with-flask/test_boggle.py
