@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boggle Solver</title>
+    <style>
+        #grid table {
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        #grid td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        .highlighted {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Boggle Solver</h1>
+
+    <section id="grid">
+        <h2>Letter Grid:</h2>
+        <table>
+            {% for row in grid %}
+            <tr>
+                {% for letter in row %}
+                <td class="letter">{{ letter }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section id="words" onmouseleave="unhighlightAll()">
+        <h2>Words Found:</h2>
+        <ol>
+            {% for word_obj in words %}
+            <li class="word" onmouseenter="highlightWord(this)" data-path="{{word_obj.path}}">{{ word_obj.word }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+    <script>
+        function highlightWord(elem) {
+            unhighlightAll();
+            elem.classList.add('highlighted');
+            let path = JSON.parse(elem.dataset.path);
+            for (let letterCoords of path) {
+                highlightLetter(letterCoords);
+            };
+        }
+
+        function highlightLetter(letterCoords) {
+            // css counting is 1-based, so we need to increment by 1 from the 0-based indexes
+            let row = letterCoords[0] + 1;
+            let col = letterCoords[1] + 1;
+            let letterSelector = `#grid tr:nth-child(${row}) td:nth-child(${col})`;
+            document.querySelector(letterSelector).classList.add('highlighted');
+        }
+
+        function unhighlightAll() {
+            for (let elem of document.querySelectorAll('.word,.letter')) {
+                elem.classList.remove('highlighted');
+            }
+        }
+    </script>
+</body>
+</html>
